@@ -16,59 +16,70 @@ data, JSON files with real-world data.
 Main set of components
 ===================================
 
-See the figure 'System_diagram.pdf'.
+See the figure ./'System_diagram.pdf'.
 
-- APIs Convertion
+- APIs Convertion:
+
   These classes parse the XML / JSON files with the dataset object annotations,
   read and convert the annotated data into the internal data
   structure, consisting of a scene with a set of objects.
 
-- Database Handling Module
+- Database Handling Module:
+
   Classes: 'DatabaseInformation', 'SceneInformation', 'Object', representing 
   the internal data structure.
 
-- Feature Extraction Module
+- Feature Extraction Module:
+
   APIs to extract features from individual objects and from pairs of objects in 
   the scenes and classes that store these features at the level of: database, 
   scene, object / object pair.
 
-- Api Database Frequencies
+- Api Database Frequencies:
+
   Given the 'DatabaseInformation' of a set of scenes, these APIs compute the 
   occurrence frequencies of the object categories and the   occurrence frequencies 
   of the object categories co-occurrences (pair of categories).
 
-- Apis Statistical Tool Module
+- Apis Statistical Tool Module:
+
   Contains 'Training' class to do training of Gaussian Mixture Models (GMMs) 
   for a set of object   categories / category pairs, 'Test' class with different algorithms 
-  to predict the object category labels in the inference phase, S'tatistical_Tool_Api' 
+  to predict the object category labels in the inference phase, 'Statistical_Tool_Api' 
   with static functions to learn GMM models and to compute GMM likelihood values,
   interface to store and load the learned model parameters to / from file. 
  
-- Evaluation Framework Module
+- Evaluation Framework Module:
+
   Module for performance evaluation of the object class prediction task.
   Computation of confusion matrix, precision and recall per object category.
-  Provides a cross-validation framework for extensive training and test experiments.
+  Provides also a cross-validation framework for extensive training and test experiments.
 
 System requirements
 ===================================
 
 - PCL library v. 1.4
-- OpenCV library
+- OpenCV library v. opencv-2.4.6.1 or higher
+- CMake v. 2.6
 
 To build the project
 ===================================
 
-cd /yourPath/Joint_Object_Classification/
+cd /yourPath/project-joint-object-classification/
+
 mkdir build
+
 cd build
+
 cmake ..
+
 make
 
 
 Usage
 ===================================
 
-See the test cases for different examples of training and test of the joint 
+See the test cases ('TestCases') for different examples of training and test of the joint 
 object classification method and cross validation experiments.
 
 
